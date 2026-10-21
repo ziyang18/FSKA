@@ -1,0 +1,24 @@
+================================================================================================
+FSKA Dual-Model Toy Non-stationary Regression Report
+================================================================================================
+
+Run setup:
+  seed: 42
+  n_points: 500
+  train/test: 350/150 (random split)
+  epochs: 60
+  frska_extra_epochs: 40
+  learning_rate: 0.01
+  eval_batch_size: 1
+  device: cpu
+
+------------------------------------------------------------------------------------------------
+Model            Best MSE     Best MAE     Best R2    Best Epoch  
+------------------------------------------------------------------------------------------------
+Transformer      0.121911     0.286304     0.4408     26          
+FSKA             0.041198     0.159322     0.8110     45          
+
+Notes:
+- FSKA is the paper's OURS method.
+- FSKA here uses independent kernels across heads (shared_flow=False).
+- Toy data generation and output format follow the existing nonstationary V2 experiment.

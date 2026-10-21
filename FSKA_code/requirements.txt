@@ -1,0 +1,9 @@
+numpy
+matplotlib
+tqdm
+torch
+torchvision
+scikit-learn
+
+# Optional: enables the full normalizing-flow version in FSKA.
+normflows
