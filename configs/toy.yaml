@@ -1,0 +1,28 @@
+suite: toy
+seeds: [0, 1, 2, 3, 4]
+data:
+  n_points: 500
+  split_seed: 42
+  train_ratio: 0.7
+  split_mode: random
+model:
+  architecture: per_head_full
+  prior_type: ngsm
+  trunk_layers: 2
+  mlp_hidden_dim: null
+  hidden_dim: 64
+  n_heads: 8
+  n_layers: 1
+  dropout: 0.0
+  M: 96
+  num_flows: 3
+  num_mixtures: 4
+  kl_lambda: 0.001
+training:
+  epochs: 100  # The original FSKA runner used 60 + 40 extra epochs.
+  learning_rate: 0.008
+  weight_decay: 0.00005
+  eval_batch_size: 1
+  gradient_clip: 1.0
+  checkpoint: final
+  kl_convention: legacy_double_weight_per_sample

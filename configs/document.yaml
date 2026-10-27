@@ -1,0 +1,35 @@
+suite: document
+seeds: [0, 1, 2, 3, 4]
+datasets: [scotus, bbc_news, twenty_news, arxiv]
+data:
+  split_seed: 42
+  max_seq_len: null  # Full documents; never truncate or chunk.
+  min_freq: 2
+  max_vocab_size: 50000
+model:
+  architecture: per_head_full
+  prior_type: ngsm
+  trunk_layers: 2
+  mlp_hidden_dim: null
+  embed_dim: 128
+  hidden_dim: 128
+  n_heads: 4
+  n_layers: 2
+  pf_dim: 256
+  dropout: 0.1
+  M: 64
+  num_flows: 3
+  num_mixtures: 10
+  kl_lambda: 0.001
+  qk_mode: no_qk
+  v_mode: fixed_orth
+training:
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  gradient_clip: 1.0
+  scheduler_t_max: 45
+  patience: null
+  checkpoint: final
+
